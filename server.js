@@ -1,6 +1,7 @@
 var http = require("http");
 var express = require("express");
 var app = express();
+var tmi = require("tmi.js");
 
 app.use("/public", express.static(__dirname + "/public"));
 

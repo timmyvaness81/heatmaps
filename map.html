@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 <html>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
-	<script src="https://d3js.org/d3.v4.0.0-alpha.50.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
 	<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-	<script src="//cdn.tmijs.org/js/1.0.0/tmi.min.js"></script>
-	<script src="./public/heat-maps.js"></script>
-	<body ng-app="heat-map-app">
-		
+	<script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
+	<script src="file:///D:\Git\heatmaps/heat-map.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<body ng-app="twitchApp">
+	    <div ng-controller="twitchAppController">
+			<div class="row">
+				<div class="class=col-md-2">
+					<button ng-click='clickStart()'>Start Count</button>
+				</div>
+				<div class="class=col-md-2">
+					<button ng-click='clickUpdate()'>Start Count</button>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>

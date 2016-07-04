@@ -1,10 +1,13 @@
-var http = require("http");
 var express = require("express");
 var app = express();
+var http = require("http").Server(app);
 var irc = require("irc");
 var bodyParser = require("body-parser");
+var io = require('socket.io')(80);
 
 app.use("/public", express.static(__dirname + "/public"));
+app.use("/css", express.static(__dirname + "/css"));
+app.use("/js", express.static(__dirname + "/js"));
 
 emote_list = 	['Kappa','PogChamp', '4Head', 'BabyRage',
 				 'BibleThump', 'FrankerZ', 'HeyGuys', 'KappaPride',
@@ -17,6 +20,13 @@ var settings = {
 	'nick': 'overstim',
 	'password': ''
 };
+
+io.on('connection', function(socket){
+	console.log('connected');
+	socket.on('disconnect', function(){
+		console.log('disconnected');
+	});
+});
 
 var bot = new irc.Client(settings.server, settings.nick, {
 	channels: [settings.channels + " " + settings.password],
@@ -51,10 +61,11 @@ app.get('/updateCounter', function (req, res) {
 	res.send()
 });
 
-app.post('/startCounter', function (req, res) {
+app.get('/startCounter', function (req, res) {
 	new_counter = {}
-	for (i=0;i<emote_list;i+=1) {
+	for (i=0;i<emote_list.length;i+=1) {
 		new_counter[emote_list[i]] = 0;
+		console.log(new_counter);
 	};
 	res.send(JSON.stringify(new_counter));
 });

@@ -1,16 +1,23 @@
-var options = {
-	options: {
-		debug: true;
-	},
-	connection: {
-		reconnect: true;
-	},
-	identity: {
-		username: "overstim",
-		password: "oauth:4714dm2drd2klrgcx7ssqvmvcm8rak"
-	},
-};
+var twitchApp = angular.module('twitchApp', []);
 
-var client = new tmi.client(options);
+var svgContainer = d3.select("body").append("svg")
+									.attr('width', 500)
+									.attr('height', 500);
 
-client.connect();
+var rectangles = svgContainer.selectAll('rectangle');
+
+twitchApp.controller('twitchAppController', function ($scope, $http) {
+
+	$scope.clickStart = function() {
+		
+		$http.get('/startCounter')
+			 .then(function(res){
+				 console.log(res);
+				 console.log(res.data);
+			 });
+	};
+	
+	$scope.clickUpdate = function () {
+		;
+	}
+});
